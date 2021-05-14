@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McWrapper", "McWrapper\McWrapper.csproj", "{615B2BCA-F8EF-45D0-9C70-433B109C496D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{615B2BCA-F8EF-45D0-9C70-433B109C496D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{615B2BCA-F8EF-45D0-9C70-433B109C496D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{615B2BCA-F8EF-45D0-9C70-433B109C496D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{615B2BCA-F8EF-45D0-9C70-433B109C496D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
