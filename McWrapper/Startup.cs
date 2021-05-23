@@ -88,7 +88,7 @@ namespace McWrapper
                 options.GroupNameFormat = "'v'VVV";
             });
             
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(options => options.CustomSchemaIds(type => type.ToString()));
             services.AddAutoMapper();
         }
 
