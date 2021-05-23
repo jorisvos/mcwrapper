@@ -71,18 +71,18 @@ namespace McWrapper.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<bool> Command(Guid id, [FromQuery] string command)
             => ServerService.ServerManager.ExecuteCommand(id, command);
-        
+
         [HttpGet("{id:guid}/log")]
-        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(FileStreamResult), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<string> Log(Guid id)
-            => ServerService.ServerManager.GetLog(id);
-        
+        public FileStreamResult Log(Guid id)
+            =>new FileStreamResult(System.IO.File.OpenRead(ServerService.ServerManager.GetLog(id)), "application/octet-stream");
+
         [HttpGet("{id:guid}/minecraftlog")]
-        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(FileStreamResult), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<string> MinecraftLog(Guid id)
-            => ServerService.ServerManager.GetMinecraftLog(id);
+        public FileStreamResult MinecraftLog(Guid id)
+            =>new FileStreamResult(System.IO.File.OpenRead(ServerService.ServerManager.GetMinecraftLog(id)), "application/octet-stream");
         
         [HttpGet("{id:guid}/running")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
