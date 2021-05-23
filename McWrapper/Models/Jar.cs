@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace McWrapper.Models
 {
@@ -13,6 +14,9 @@ namespace McWrapper.Models
         public string MinecraftVersion { get; set; }
         public DateTime? CreatedAt { get; set; } 
         public DateTime? ModifiedAt { get; set; }
+        
+        [Required]
+        public IFormFile File { get; set; }
     }
 
     public class JarDto

@@ -36,14 +36,11 @@ namespace McWrapper.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Upload([FromForm] Plugin plugin, [FromForm] IFormFile file, ApiVersion version)
+        public async Task<ActionResult> Upload([FromForm] Plugin plugin, ApiVersion version)
         {
-            if (file == null)
-                return BadRequest("The plugin has to be uploaded under the name 'file'.");
-            
             try
             {
-                var uploadedPlugin = await _pluginService.Add(plugin, file);
+                var uploadedPlugin = await _pluginService.Add(plugin, plugin.File);
             
                 return CreatedAtAction("GetById", 
                     "Plugin",

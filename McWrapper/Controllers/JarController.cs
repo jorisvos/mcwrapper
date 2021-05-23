@@ -37,14 +37,11 @@ namespace McWrapper.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> Upload([FromForm] Jar jar, [FromForm] IFormFile file, ApiVersion version)
+        public async Task<ActionResult> Upload([FromForm] Jar jar, ApiVersion version)
         {
-            if (file == null)
-                return BadRequest("The jar has to be uploaded under the name 'file'.");
-            
             try
             {
-                var uploadedJar = await _jarService.Add(jar, file);
+                var uploadedJar = await _jarService.Add(jar, jar.File);
             
                 return CreatedAtAction("GetById", 
                     "Plugin",
