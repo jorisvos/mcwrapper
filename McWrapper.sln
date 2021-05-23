@@ -2,6 +2,13 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McWrapper", "McWrapper\McWrapper.csproj", "{615B2BCA-F8EF-45D0-9C70-433B109C496D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{78C16A29-771D-40F1-899F-F44D87B5591A}"
+ProjectSection(SolutionItems) = preProject
+	DbCreationScript.sql = DbCreationScript.sql
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McWrapperLib", "McWrapperLib\McWrapperLib.csproj", "{BDBFAE69-9493-4D63-8C49-39B4BFC6A90D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +19,9 @@ Global
 		{615B2BCA-F8EF-45D0-9C70-433B109C496D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{615B2BCA-F8EF-45D0-9C70-433B109C496D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{615B2BCA-F8EF-45D0-9C70-433B109C496D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBFAE69-9493-4D63-8C49-39B4BFC6A90D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBFAE69-9493-4D63-8C49-39B4BFC6A90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBFAE69-9493-4D63-8C49-39B4BFC6A90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBFAE69-9493-4D63-8C49-39B4BFC6A90D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
