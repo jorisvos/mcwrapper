@@ -31,6 +31,8 @@ namespace McWrapper
         }
 
         public IConfiguration Configuration { get; }
+        
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -90,6 +92,13 @@ namespace McWrapper
             
             services.AddSwaggerGen(options => options.CustomSchemaIds(type => type.ToString()));
             services.AddAutoMapper();
+
+            //TODO: check if this needs to be removed before release (since we use env.IsDevelopment() in the Configure method)
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                    builder => { builder.WithOrigins("http://localhost:3000"); });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,14 +109,15 @@ namespace McWrapper
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "McWrapper API V1");
             });
-            
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            if (env.IsDevelopment())
+            {
+                app.UseCors(MyAllowSpecificOrigins);
+                app.UseDeveloperExceptionPage();
+            }
+
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
