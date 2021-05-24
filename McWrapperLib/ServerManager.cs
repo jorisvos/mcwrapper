@@ -78,6 +78,8 @@ namespace McWrapperLib
             }
         }
 
+        public List<Server> GetAllInfo(int count = -1)
+            => _servers.GetRange(0, count == -1 || count > _servers.Count ? _servers.Count : count);
         public Server GetInfo(Guid id)
             => _servers.FirstOrDefault(s => s.Id == id);
         public bool StartServer(Guid id)

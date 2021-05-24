@@ -66,6 +66,18 @@ namespace McWrapper.Controllers
             return NoContent();
         }
         
+        [HttpGet("info")]
+        [ProducesResponseType(typeof(List<McWrapperLib.Server>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<List<McWrapperLib.Server>> AllInfo()
+            => ServerService.ServerManager.GetAllInfo();
+        
+        [HttpGet("info/{count:int}")]
+        [ProducesResponseType(typeof(List<McWrapperLib.Server>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<List<McWrapperLib.Server>> AllInfoCount(int count)
+            => ServerService.ServerManager.GetAllInfo(count);
+
         [HttpPost("{id:guid}/command")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
