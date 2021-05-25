@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McWrapper", "McWrapper\McWr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{78C16A29-771D-40F1-899F-F44D87B5591A}"
 ProjectSection(SolutionItems) = preProject
-	DbCreationScript.sql = DbCreationScript.sql
+	DbCreationScript.sql = data\DbCreationScript.sql
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "McWrapperLib", "McWrapperLib\McWrapperLib.csproj", "{BDBFAE69-9493-4D63-8C49-39B4BFC6A90D}"
